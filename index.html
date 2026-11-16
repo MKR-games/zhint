@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#22253c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Z 힌트북">
+  <meta name="description" content="직원을 위한 테마별 힌트 코드와 정답 검색">
+  <title>Z HINT BOOK | 직원용 힌트북</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="boot.js?v=4"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Z 힌트북 처음으로">
+        <span class="brand-mark" aria-hidden="true"><span>Z</span></span>
+        <span class="brand-copy"><strong>Z HINT BOOK</strong><small>직원용 힌트북</small></span>
+      </a>
+      <div class="staff-badge"><span class="live-dot"></span><span>STAFF ONLY</span></div>
+    </header>
+
+    <main class="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="square"></span> HINT ARCHIVE <span class="eyebrow-divider">/</span> VER. 01</div>
+          <h1 id="hero-title">막힌 문제,<br><span>빠르게 찾아요.</span></h1>
+          <p>힌트 코드 하나로 풀이부터 정답까지.</p>
+          <div class="hero-stats"><span id="theme-total">9개 테마</span><i></i><span id="hint-total">120개 힌트</span></div>
+        </div>
+        <svg class="hero-art" viewBox="0 0 150 132" role="img" aria-label="열쇠와 힌트 카드 픽셀 아트" shape-rendering="crispEdges">
+          <path fill="#666180" d="M34 104h103v7H34zM128 27h8v79h-8z"/>
+          <path fill="#d1c9fa" d="M28 24h100v78H28z"/><path fill="#27263f" d="M35 31h86v64H35z"/>
+          <path fill="#8c83ca" d="M41 37h74v52H41z"/><path fill="#cac1fa" d="M48 44h60v38H48z"/>
+          <path fill="#312e4b" d="M56 52h28v6H56zm0 12h44v5H56zm0 11h33v4H56z"/>
+          <path fill="#b9f273" d="M24 69h30v7h7v16h-7v7h-8v9h-9v-9H26v-7h-8V76h6z"/>
+          <path fill="#24283c" d="M29 77h17v6h6v7H29z"/><path fill="#8fcb56" d="M25 99h12v9h9v-9h8v-7h7v6h-7v8h-8v10H34v-9H24z"/>
+          <path fill="#f6dd82" d="M113 4h7v7h7v7h-7v7h-7v-7h-7v-7h7zM19 24h6v6h6v6h-6v6h-6v-6h-6v-6h6z"/>
+        </svg>
+      </section>
+
+      <div class="layout">
+        <aside class="controls" aria-label="힌트 검색 및 테마 선택">
+          <section class="search-panel panel">
+            <div class="section-kicker"><span class="pixel-mini"></span> QUICK SEARCH</div>
+            <h2>힌트 검색</h2>
+            <p class="section-desc">코드 또는 문제 이름을 입력하세요.</p>
+            <form id="search-form" role="search">
+              <label class="sr-only" for="query">힌트 코드 또는 문제 이름</label>
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h10v2h2v2h2v7h-2v2h-2v2H7v-2H5v-2H3V7h1zm3 3v2H6v5h1v2h6v-1h2V8h-1V6zm9 10h2v2h2v2h2v2h-3v-2h-2v-2h-1z"/></svg>
+                <input id="query" type="search" placeholder="예: FK9H42" autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="search" disabled>
+                <button id="clear-query" class="clear-button" type="button" aria-label="검색어 지우기" hidden>×</button>
+              </div>
+              <button class="search-submit" type="submit" disabled><span id="submit-label">찾아보기</span><span aria-hidden="true">↗</span></button>
+              <p id="save-status" class="save-status" role="status" hidden></p>
+            </form>
+            <div id="recent" class="recent" hidden></div>
+          </section>
+
+          <section class="theme-panel panel" aria-labelledby="theme-heading">
+            <div class="section-heading"><div><div class="section-kicker"><span class="pixel-mini lavender"></span> THEME SELECT</div><h2 id="theme-heading">테마 선택</h2></div><button id="all-themes" class="all-themes" type="button" aria-pressed="true">전체 <b id="all-hint-total">120</b></button></div>
+            <p class="theme-tip">같은 코드가 있다면 테마를 확인해 주세요.</p>
+            <div id="theme-grid" class="theme-grid"></div>
+          </section>
+        </aside>
+
+        <section id="results-section" class="results-section" aria-label="검색 결과">
+          <div id="results"></div>
+        </section>
+      </div>
+      <footer class="footer"><span>Z HINT BOOK</span><span>직원을 위한 힌트 아카이브 <span aria-hidden="true">✦</span></span></footer>
+    </main>
+  </div>
+</body>
+</html>
